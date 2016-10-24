@@ -55,8 +55,11 @@ public class GameManager : MonoBehaviour {
 			int index = _rand.Next (0, block.Length);
 			GameObject newBlock = Instantiate (block[index]);
 
+
+			Vector3 randScaleVector = new Vector3 (_rand.Next (0, 20) - 10, 0, _rand.Next (0, 20) - 10);
+
 			// Direction
-			Vector3 dir = newBlock.transform.position - player.transform.position;
+			Vector3 dir = newBlock.transform.position - player.transform.position + randScaleVector;
 
 			newBlock.GetComponent<Rigidbody> ().velocity = blockSpeed*dir.normalized*-1;
 			newBlock.transform.rotation = Quaternion.LookRotation (dir);

@@ -16,6 +16,10 @@ public class BlockController : MonoBehaviour {
 			gamePointsController.scorePoints += 10;
 			gamePointsController.scoreText.text = "Score: " + gamePointsController.scorePoints;
 
+			if (this.gameObject.tag.Equals ("Present")) {
+				gamePointsController.healthPoints += 20; //here we add health points
+			}
+
 			// Play sound
 			AudioSource.PlayClipAtPoint(explosionClip, transform.position, 1f);
 		}
